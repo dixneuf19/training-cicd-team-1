@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pomme
+  labels:
+    app: pomme
+    name: pomme
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pomme
+  template:
+    metadata:
+      labels:
+        app: pomme
+    spec:
+      containers:
+        - name: whoami
+          image: traefik/whoami
+          ports:
+            - containerPort: 80

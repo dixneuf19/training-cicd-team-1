@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abricot
+  labels:
+    app: abricot
+    name: abricot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abricot
+  template:
+    metadata:
+      labels:
+        app: abricot
+    spec:
+      containers:
+        - name: whoami
+          image: traefik/whoami
+          ports:
+            - containerPort: 80
